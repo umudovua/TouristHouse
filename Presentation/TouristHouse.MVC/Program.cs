@@ -1,7 +1,11 @@
+using TouristHouse.MVC.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager Configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddServiceRegistration(Configuration);
 
 var app = builder.Build();
 

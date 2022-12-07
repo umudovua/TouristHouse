@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TouristHouse.Domain.Entites.Common;
+﻿using TouristHouse.Domain.Entites.Common;
 
 namespace TouristHouse.Domain.Entites
 {
@@ -12,6 +7,9 @@ namespace TouristHouse.Domain.Entites
         public Announce()
         {
             SeeCount++;
+
+            var dt = DateTime.Now - CreatedDate;
+            IsActive = dt.Days > 30 ? false : true;
         }
 
         public string? Title { get; set; }
@@ -21,6 +19,7 @@ namespace TouristHouse.Domain.Entites
         public int FloorCount { get; set; }
         public double Area { get; set; }
         public int RoomCount { get; set; }
+        public int BedCont { get; set; }
 
         public int SeeCount { get; }
 

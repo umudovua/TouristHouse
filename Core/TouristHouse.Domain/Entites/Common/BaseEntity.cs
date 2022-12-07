@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TouristHouse.Domain.Entites.Common
+﻿namespace TouristHouse.Domain.Entites.Common
 {
     public class BaseEntity
     {
@@ -12,7 +6,7 @@ namespace TouristHouse.Domain.Entites.Common
         {
             Id = Guid.NewGuid().ToString();
         }
-
+        
         public string Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public Nullable<DateTime> UpdateDate { get; set; }
