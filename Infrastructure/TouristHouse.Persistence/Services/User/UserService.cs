@@ -20,7 +20,7 @@ namespace TouristHouse.Persistence.Services.User
             AppUser user = new()
             {
                 Name=model.Name,
-                UserName = model.Email,
+                UserName = model.PhoneNumber,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
             };

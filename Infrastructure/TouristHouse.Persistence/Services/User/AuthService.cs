@@ -25,9 +25,12 @@ namespace TouristHouse.Persistence.Services.User
 
         public async Task<Token> LoginAsync(LoginDto loginDto)
         {
-            AppUser user = await _userManager.FindByEmailAsync(loginDto.Email);
+            AppUser user = await _userManager.FindByEmailAsync(loginDto.PhoneNumberOrEmail);
             if (user == null)
-                throw new Exception("User Not Found");
+                user = await _userManager.FindByNameAsync(loginDto.PhoneNumberOrEmail);
+
+            if (user == null)
+                throw new Exception("Authentication error");
 
             SignInResult result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, true);
             await _signInManager.PasswordSignInAsync(user, loginDto.Password, true, true);
@@ -65,7 +68,9 @@ namespace TouristHouse.Persistence.Services.User
 
         public async Task<SignInResult> LoginMvcAsync(LoginDto loginDto)
         {
-            AppUser user = await _userManager.FindByEmailAsync(loginDto.Email);
+            AppUser user = await _userManager.FindByEmailAsync(loginDto.PhoneNumberOrEmail);
+            if (user == null)
+                user = await _userManager.FindByNameAsync(loginDto.PhoneNumberOrEmail);
             if (user == null)
                 throw new Exception("User Not Found");
 

@@ -26,6 +26,7 @@ namespace TouristHouse.Infrastructure.Services.Token
             {
                 new Claim(JwtRegisteredClaimNames.NameId, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("PhoneNumber", user.PhoneNumber),
             };
             var roles = await _userManager.GetRolesAsync(user);
 
@@ -45,8 +46,8 @@ namespace TouristHouse.Infrastructure.Services.Token
                 Expires = DateTime.Now.AddDays(7),
                 SigningCredentials = credentials,
 
-                Issuer = "https://localhost:44329",
-                Audience = "https://localhost:44329",
+                Issuer = "https://localhost:7045",
+                Audience = "https://localhost:7045",
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenS = tokenHandler.CreateToken(tokenDescriptor);
