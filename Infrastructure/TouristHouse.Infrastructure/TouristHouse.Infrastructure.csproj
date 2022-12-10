@@ -20,7 +20,10 @@
 	<ItemGroup>
 	  <Folder Include="Enums\" />
 	  <Folder Include="Helpers\" />
-	  <Folder Include="Mapping\" />
-	  <Folder Include="Services\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Core\TouristHouse.Application\TouristHouse.Application.csproj" />
 	</ItemGroup>
 </Project>

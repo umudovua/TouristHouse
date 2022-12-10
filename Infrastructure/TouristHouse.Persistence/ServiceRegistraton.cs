@@ -9,8 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TouristHouse.Application.Models;
+using TouristHouse.Application.Repositories;
 using TouristHouse.Domain.Entites;
 using TouristHouse.Persistence.Context;
+using TouristHouse.Persistence.Repositories;
 
 namespace TouristHouse.Persistence
 {
@@ -32,14 +34,22 @@ namespace TouristHouse.Persistence
                 opt.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 opt.Lockout.AllowedForNewUsers = true;
             }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+
+            services.AddScoped<IAnnounceRepository, AnnounceRepository>();
         }
+
+
+
+
+
 
         public static CloudinarySettings GetCloudinarySettings
         {
             get
             {
                 ConfigurationManager configurationManager = new();
-                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/TouristHouse.MVC"));
+                configurationManager.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../../Presentation/TouristHouse.API"));
                 configurationManager.AddJsonFile("appsettings.json");
                 CloudinarySettings cloudinary = new()
                 {

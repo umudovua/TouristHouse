@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9D210912-F156-45FD-9171-39719DA6C3F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.Application", "Core\TouristHouse.Application\TouristHouse.Application.csproj", "{3169E2C3-A6D0-411C-9542-4982BE8C2C9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristHouse.Application", "Core\TouristHouse.Application\TouristHouse.Application.csproj", "{3169E2C3-A6D0-411C-9542-4982BE8C2C9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.Domain", "Core\TouristHouse.Domain\TouristHouse.Domain.csproj", "{CDC069A2-A215-4723-8CA8-9C4BBE30B116}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristHouse.Domain", "Core\TouristHouse.Domain\TouristHouse.Domain.csproj", "{CDC069A2-A215-4723-8CA8-9C4BBE30B116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.Infrastructure", "Infrastructure\TouristHouse.Infrastructure\TouristHouse.Infrastructure.csproj", "{A8DD5BC3-0384-4509-B7E4-AA409B27269B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristHouse.Infrastructure", "Infrastructure\TouristHouse.Infrastructure\TouristHouse.Infrastructure.csproj", "{A8DD5BC3-0384-4509-B7E4-AA409B27269B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.Persistence", "Infrastructure\TouristHouse.Persistence\TouristHouse.Persistence.csproj", "{7F2F4883-51F0-40C0-A787-5109F218038F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristHouse.Persistence", "Infrastructure\TouristHouse.Persistence\TouristHouse.Persistence.csproj", "{7F2F4883-51F0-40C0-A787-5109F218038F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.MVC", "Presentation\TouristHouse.MVC\TouristHouse.MVC.csproj", "{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TouristHouse.MVC", "Presentation\TouristHouse.MVC\TouristHouse.MVC.csproj", "{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TouristHouse.API", "Presentation\TouristHouse.API\TouristHouse.API.csproj", "{BE24A4C1-3073-44CA-9C35-2BEA5775CB33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE24A4C1-3073-44CA-9C35-2BEA5775CB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE24A4C1-3073-44CA-9C35-2BEA5775CB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE24A4C1-3073-44CA-9C35-2BEA5775CB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE24A4C1-3073-44CA-9C35-2BEA5775CB33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{A8DD5BC3-0384-4509-B7E4-AA409B27269B} = {39045A9D-41F4-46BA-BBD7-E70E8A649EA1}
 		{7F2F4883-51F0-40C0-A787-5109F218038F} = {39045A9D-41F4-46BA-BBD7-E70E8A649EA1}
 		{65609BEA-DA2F-4D88-8089-CBEFBE7BD4BB} = {9D210912-F156-45FD-9171-39719DA6C3F7}
+		{BE24A4C1-3073-44CA-9C35-2BEA5775CB33} = {9D210912-F156-45FD-9171-39719DA6C3F7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {061A084A-60C8-4ABA-AB5A-A61BEF185CF1}
