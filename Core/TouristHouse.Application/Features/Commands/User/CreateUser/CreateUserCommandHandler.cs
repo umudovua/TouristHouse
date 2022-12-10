@@ -1,9 +1,4 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TouristHouse.Application.Abstractions.Services.User;
 using TouristHouse.Application.Dtos.User;
 

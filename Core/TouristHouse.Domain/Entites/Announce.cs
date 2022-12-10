@@ -1,4 +1,5 @@
-﻿using TouristHouse.Domain.Entites.Common;
+﻿using TouristHouse.Domain.Entites.Category;
+using TouristHouse.Domain.Entites.Common;
 
 namespace TouristHouse.Domain.Entites
 {
@@ -6,8 +7,7 @@ namespace TouristHouse.Domain.Entites
     {
         public Announce()
         {
-            SeeCount++;
-
+            
             var dt = DateTime.Now - CreatedDate;
             IsActive = dt.Days > 30 ? false : true;
         }
@@ -16,15 +16,14 @@ namespace TouristHouse.Domain.Entites
         public string? Description { get; set; }
         public double Price { get; set; }
 
-        public int FloorCount { get; set; }
-        public double Area { get; set; }
-        public int RoomCount { get; set; }
-        public int BedCont { get; set; }
-
-        public int SeeCount { get; }
+        public DateTime EndDate { get; set; }
+        public int SeeCount { get; set; }
 
         public string? UserId { get; set; }
         public AppUser? User { get; set; }
+
+        public string? HomeId { get; set; }
+        public Home? Home { get; set; }
 
         public string? CountryId { get; set; }
         public Country? Country { get; set; }
@@ -33,12 +32,18 @@ namespace TouristHouse.Domain.Entites
         public string? VillageId { get; set; }
         public Village? Village { get; set; }
 
-
+        public AnnounceCategory Category { get; set; }
         public ICollection<Photo>? Photos { get; set; }
         public StatusAnnounce? Status { get; set; }
 
         public ICollection<AnnounceTag>? AnnounceTags { get; set; }
 
+    }
+
+    public enum AnnounceCategory
+    {
+        Home=1,
+        Hotel
     }
 
 }

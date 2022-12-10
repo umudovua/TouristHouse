@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TouristHouse.Persistence.Context;
 
@@ -11,9 +12,10 @@ using TouristHouse.Persistence.Context;
 namespace TouristHouse.Persistence.Context.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221210134215_mig3")]
+    partial class mig3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -190,12 +192,6 @@ namespace TouristHouse.Persistence.Context.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("HomeId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
@@ -204,9 +200,6 @@ namespace TouristHouse.Persistence.Context.Migrations
 
                     b.Property<DateTime?>("RemovedDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("SeeCount")
-                        .HasColumnType("int");
 
                     b.Property<string>("StatusId")
                         .HasColumnType("nvarchar(450)");
@@ -228,10 +221,6 @@ namespace TouristHouse.Persistence.Context.Migrations
                     b.HasIndex("CityId");
 
                     b.HasIndex("CountryId");
-
-                    b.HasIndex("HomeId")
-                        .IsUnique()
-                        .HasFilter("[HomeId] IS NOT NULL");
 
                     b.HasIndex("StatusId");
 
@@ -347,7 +336,7 @@ namespace TouristHouse.Persistence.Context.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("AnnounceId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<double>("Area")
                         .HasColumnType("float");
@@ -374,6 +363,8 @@ namespace TouristHouse.Persistence.Context.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnnounceId");
 
                     b.ToTable("Homes");
                 });
@@ -612,10 +603,6 @@ namespace TouristHouse.Persistence.Context.Migrations
                         .WithMany()
                         .HasForeignKey("CountryId");
 
-                    b.HasOne("TouristHouse.Domain.Entites.Category.Home", "Home")
-                        .WithOne("Announce")
-                        .HasForeignKey("TouristHouse.Domain.Entites.Announce", "HomeId");
-
                     b.HasOne("TouristHouse.Domain.Entites.StatusAnnounce", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId");
@@ -632,13 +619,20 @@ namespace TouristHouse.Persistence.Context.Migrations
 
                     b.Navigation("Country");
 
-                    b.Navigation("Home");
-
                     b.Navigation("Status");
 
                     b.Navigation("User");
 
                     b.Navigation("Village");
+                });
+
+            modelBuilder.Entity("TouristHouse.Domain.Entites.Category.Home", b =>
+                {
+                    b.HasOne("TouristHouse.Domain.Entites.Announce", "Announce")
+                        .WithMany()
+                        .HasForeignKey("AnnounceId");
+
+                    b.Navigation("Announce");
                 });
 
             modelBuilder.Entity("TouristHouse.Domain.Entites.City", b =>
@@ -682,11 +676,6 @@ namespace TouristHouse.Persistence.Context.Migrations
             modelBuilder.Entity("TouristHouse.Domain.Entites.AppUser", b =>
                 {
                     b.Navigation("Announces");
-                });
-
-            modelBuilder.Entity("TouristHouse.Domain.Entites.Category.Home", b =>
-                {
-                    b.Navigation("Announce");
                 });
 
             modelBuilder.Entity("TouristHouse.Domain.Entites.City", b =>

@@ -15,7 +15,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Features\Queries\" />
+	  <Folder Include="Features\Queries\Announce\GetAllAnnounce\" />
 	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 

@@ -10,6 +10,7 @@ using TouristHouse.Domain.Entites;
 using TouristHouse.Persistence.Context;
 using TouristHouse.Persistence.Repositories;
 using TouristHouse.Persistence.Services;
+using TouristHouse.Persistence.Services.AnnounceService;
 using TouristHouse.Persistence.Services.User;
 
 namespace TouristHouse.Persistence
@@ -40,6 +41,11 @@ namespace TouristHouse.Persistence
 
 
             services.AddScoped<IAnnounceRepository, AnnounceRepository>();
+            services.AddScoped<IHomeAnnounceRepository, HomeAnnounceRepository>();
+
+
+            services.AddScoped<IAnnounceService, AnnounceService>();
+            services.AddScoped<IHomeAnnounceService, HomeAnnounceService>();
         }
 
 
