@@ -1,4 +1,6 @@
-﻿using TouristHouse.Persistence;
+﻿using TouristHouse.Application;
+using TouristHouse.Infrastructure;
+using TouristHouse.Persistence;
 
 namespace TouristHouse.API.Extensions
 {
@@ -7,6 +9,8 @@ namespace TouristHouse.API.Extensions
         public static void AddServiceRegistration(this IServiceCollection services, IConfiguration config)
         {
             services.AddPersistenceServices(config);
+            services.AddInfrastructureServices();
+            services.AddApplicationServices();
 
             services.AddControllers()
                 .AddNewtonsoftJson(options =>

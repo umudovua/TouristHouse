@@ -1,5 +1,4 @@
 using TouristHouse.API.Extensions;
-using TouristHouse.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager Configuration = builder.Configuration;
@@ -11,7 +10,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServiceRegistration(Configuration);
-builder.Services.AddInfrastructureServices();
 
 
 

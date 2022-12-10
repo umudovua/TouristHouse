@@ -11,4 +11,12 @@ namespace TouristHouse.Domain.Entites
 
         public ICollection<Announce>? Announces { get; set; }
     }
+
+    public enum AppRole
+    {
+        Member,
+        Admin,
+        Moderator,
+        SuperAdmin
+    }
 }

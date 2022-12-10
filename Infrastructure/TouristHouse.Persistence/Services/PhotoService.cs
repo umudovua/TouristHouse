@@ -38,7 +38,9 @@ namespace TouristHouse.Persistence.Services
             var uploadParams = new ImageUploadParams
             {
                 File = new FileDescription(file.FileName, stream),
-                Transformation = new Transformation().Height(300).Width(300).Crop("fill").Gravity("face")
+                Transformation = new Transformation().Color("#0000007D").Overlay(new TextLayer().FontFamily("arial")
+                      .FontSize(220).FontWeight("bold").TextAlign("left").Text("Tourist%20House")).Chain()
+                      .Flags("layer_apply").Gravity("center")
             };
 
             uploadResult = await _cloudinary.UploadAsync(uploadParams);

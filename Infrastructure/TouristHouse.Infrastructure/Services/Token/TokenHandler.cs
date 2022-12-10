@@ -1,17 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using TouristHouse.Application.Abstractions.Token;
 using TouristHouse.Domain.Entites;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace TouristHouse.Infrastructure.Services.Token
 {
@@ -40,7 +34,7 @@ namespace TouristHouse.Infrastructure.Services.Token
             var secretkey = Configuration.GetSecretKey;
 
             SymmetricSecurityKey key =
-                    new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(secretkey));
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretkey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             token.Expiration = DateTime.UtcNow.AddDays(7);

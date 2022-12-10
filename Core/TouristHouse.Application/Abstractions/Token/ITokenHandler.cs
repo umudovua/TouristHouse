@@ -9,7 +9,7 @@ namespace TouristHouse.Application.Abstractions.Token
 {
     public interface ITokenHandler
     {
-        Task<Models.Token> CreateAccessTokenAsync(int second, AppUser user);
+        Task<Models.Token> CreateAccessTokenAsync(AppUser user);
         string CreateRefreshToken();
     }
 }
